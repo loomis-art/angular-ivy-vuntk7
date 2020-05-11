@@ -1,0 +1,40 @@
+<div class="hive-component">
+    
+    <mat-card>
+        <mat-horizontal-stepper [linear]="true">
+            <mat-step label="Firma Bilgileri" state="firma">
+                <mat-form-field appearance="outline"> 
+                   <mat-label>Ticari Ünvan</mat-label>
+                    <input matInput [(ngModel)]="firma.TicariUnvan" name="scenarioName" #scenarioName="ngModel"
+                           placeholder="Ticari Ünvan" class="form-control" required minlength="3" />
+                    <mat-error [hidden]="scenarioName.valid">sfsfsfÜnvan en az 3 karakter olmalı
+                    </mat-error>
+                </mat-form-field>
+                 <mat-form-field appearance="outline"> 
+                   <mat-label>Ticari Ünvan</mat-label>
+                    <input matInput [(ngModel)]="firma.KisaAdi" name="scenarioName" #scenarioName="ngModel"
+                           placeholder="Ticari Ünvan" class="form-control" required minlength="3" />
+                    <mat-error [hidden]="scenarioName.valid">sfsfsfÜnvan en az 3 karakter olmalı
+                    </mat-error>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext>Sonraki</button>
+                </div>
+            </mat-step>
+            <mat-step label="Firma Adres Bilgileri" state="adres">
+                <p>Socialize with each other.</p>
+                <div>
+                    <button mat-button matStepperPrevious>Önceki</button>
+                    <button mat-button matStepperNext>Sonraki</button>
+                </div>
+            </mat-step>
+            <mat-step label="Fiyat Tanımlama" state="fiyat">
+                <p>You're welcome.</p>
+            </mat-step>
+            <mat-step label="Sözleşme Ekle" state="sozlesme">
+                <p>You're welcome.</p>
+            </mat-step>
+        </mat-horizontal-stepper>
+        {{ firma | json }}
+    </mat-card>
+</div>
