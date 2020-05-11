@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "dependencies": {
+  "dependencies": { 
     "@angular/animations": "~9.1.4",
     "@angular/cdk": "~9.2.1",
     "@angular/common": "~9.1.4",
