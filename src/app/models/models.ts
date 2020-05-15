@@ -1,6 +1,6 @@
-// https://localhost:44304/swagger/index.html
-// Generated !! https://localhost:44304/api/admin/jsonhelper
-
+// Generated 
+// https://localhost:44304/swagger/index.html 
+// api/admin/jsonhelper
 export class ProfileAdres {
   Adres1: string;
   Adres2: string;
