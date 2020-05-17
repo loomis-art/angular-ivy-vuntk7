@@ -11,6 +11,7 @@ import { FirmaEkleComponent } from "./firma-ekle/firma-ekle.component";
 import { FirmaListesiComponent } from "./firma-listesi/firma-listesi.component";
 import { FirmaKullaniciEkleComponent } from "./firma-kullanici-ekle/firma-kullanici-ekle.component";
 import { FirmaKullaniciListesiComponent } from "./firma-kullanici-listesi/firma-kullanici-listesi.component";
+import { HiveModule } from 'src/hive/hive.module';
 
 const routes: Routes = [
     {path: "", redirectTo: "listesi", pathMatch: "full"},
@@ -46,7 +47,8 @@ const routes: Routes = [
         FlexLayoutModule,
         DevExtremeModule,
         RouterModule.forChild(routes),
-        FormsModule
+        FormsModule,
+        HiveModule
     ],
     exports: [RouterModule],
     declarations: [

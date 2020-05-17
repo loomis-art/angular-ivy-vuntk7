@@ -9,12 +9,10 @@ import { RouteReusableStrategy } from 'src/hive/route-reusable-strategy';
 import { IHiveConfig } from 'src/hive/lib/types/hive-config';
 import { HIVE_CONFIG } from 'src/hive/services/config.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//#region  THIRD_MODULES ------------------------------------------
 import { MaterialModule } from 'src/app/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 const THIRD_MODULES = [FlexLayoutModule];
-//#endregion
 
 
 import * as moment from 'moment';
@@ -29,6 +27,7 @@ import {
     MomentDateAdapter,
     MAT_MOMENT_DATE_ADAPTER_OPTIONS
 } from '@angular/material-moment-adapter';
+import { PageHeaderComponent } from 'src/hive/components/page-header/page-header.component';
 
 
 export const MY_FORMATS = {
@@ -42,9 +41,11 @@ export const MY_FORMATS = {
 };
 
 @NgModule({
-    declarations: [],
+    declarations: [PageHeaderComponent],
     imports: [HttpClientModule,MaterialModule, FlexLayoutModule],
-    exports: [],
+    exports: [
+        PageHeaderComponent
+    ],
     providers: [
 
         {provide: RouteReuseStrategy, useClass: RouteReusableStrategy},
