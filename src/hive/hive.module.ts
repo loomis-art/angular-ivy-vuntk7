@@ -1,18 +1,17 @@
-import {NgModule, Optional, SkipSelf, ModuleWithProviders} from '@angular/core';
-import {CommonModule, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
+import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {RouteReuseStrategy, RouterModule} from '@angular/router';
-import {RouteReusableStrategy} from './route-reusable-strategy';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
+import { RouteReusableStrategy } from 'src/hive/route-reusable-strategy';
 
 
-
-import {IHiveConfig} from './types/hive-config';
-import {HIVE_CONFIG} from './services/config.service';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { IHiveConfig } from 'src/hive/lib/types/hive-config';
+import { HIVE_CONFIG } from 'src/hive/services/config.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //#region  THIRD_MODULES ------------------------------------------
-import {MaterialModule} from '../material.module';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { MaterialModule } from 'src/app/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const THIRD_MODULES = [FlexLayoutModule];
 //#endregion
@@ -44,7 +43,7 @@ export const MY_FORMATS = {
 
 @NgModule({
     declarations: [],
-    imports: [MaterialModule, FlexLayoutModule],
+    imports: [HttpClientModule,MaterialModule, FlexLayoutModule],
     exports: [],
     providers: [
 
@@ -68,13 +67,6 @@ export class HiveModule {
 
 @NgModule({})
 export class HiveCoreModule {
-    static forRoot(): ModuleWithProviders<HiveCoreModule> {
-        return {
-            ngModule: HiveCoreModule,
-            providers: []
-        };
-    }
-
     constructor(@Optional() @SkipSelf() parentModule: HiveCoreModule) {
         // Import guard
         if (parentModule) {
@@ -82,5 +74,12 @@ export class HiveCoreModule {
                 `Hive Core has already been loaded. Import Core module in the AppModule only.`
             );
         }
+    }
+
+    static forRoot(): ModuleWithProviders<HiveCoreModule> {
+        return {
+            ngModule: HiveCoreModule,
+            providers: []
+        };
     }
 }

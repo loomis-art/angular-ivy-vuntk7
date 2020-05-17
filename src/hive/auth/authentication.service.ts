@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment';
 import {
   CredentialsService,
   ICredentials,
   CredentialsResult,
-} from './credentials.service';
+} from 'src/hive/auth/credentials.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 

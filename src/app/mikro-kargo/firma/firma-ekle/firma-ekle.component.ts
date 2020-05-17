@@ -1,12 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import {ProfileFirma} from 'src/app/hive/types/models';
+import { ProfileFirma } from 'src/hive/lib/types/models';
+import { MikroKargoFirmaService } from 'src/app/mikro-kargo/_services/mikrokargo-firma.service';
+
 @Component({
-  selector: "app-firma-ekle",
-  templateUrl: "./firma-ekle.component.html",
-  styleUrls: ["./firma-ekle.component.css"]
+    selector: "app-firma-ekle",
+    templateUrl: "./firma-ekle.component.html",
+    styleUrls: ["./firma-ekle.component.css"]
 })
 export class FirmaEkleComponent implements OnInit {
-   firma: ProfileFirma = {
+
+
+    firma: ProfileFirma = {
         Il: undefined,
         Ilce: undefined,
         MuhasebeMail: undefined,
@@ -51,17 +55,22 @@ export class FirmaEkleComponent implements OnInit {
         YurticiKargo: undefined
     };
 
+    files: any;
 
-  constructor() {}
+    constructor(public mikroKargoFirmaService: MikroKargoFirmaService) {
+    }
 
-  ngOnInit() {}
+    ngOnInit(): void {
+    }
 
-   SubeliFirmaDegisti(Subelimi: boolean) {
+    SubeliFirmaDegisti(Subelimi: boolean) {
         if (Subelimi !== true) {
             this.firma.AnaFirmaId = undefined;
         }
     }
 
+    onClick() {
+    }
 }
 
 
