@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
+import {ProfileFirma} from '../../';
 @Component({
   selector: "app-firma-ekle",
   templateUrl: "./firma-ekle.component.html",
@@ -55,8 +55,13 @@ export class FirmaEkleComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+   SubeliFirmaDegisti(Subelimi: boolean) {
+        if (Subelimi !== true) {
+            this.firma.AnaFirmaId = undefined;
+        }
+    }
+
 }
 
-class IMikroKargoFirma {
-  TicariUnvan: string;
-}
+
