@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import {ProfileFirma} from '../../../hive/types/models';
+import {ProfileFirma} from 'src/app/hive/types/models';
 @Component({
   selector: "app-firma-ekle",
   templateUrl: "./firma-ekle.component.html",
