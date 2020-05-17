@@ -4,7 +4,7 @@ import { Platform } from '@angular/cdk/platform';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import * as _ from 'lodash';
-import { IHiveConfig } from 'src/hive/lib/types';
+import { IHiveConfig } from '../../hive/lib/types';
 
 // Create the injection token for the custom settings
 export const HIVE_CONFIG = new InjectionToken('hiveCustomConfig');

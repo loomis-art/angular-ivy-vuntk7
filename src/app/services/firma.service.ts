@@ -1,10 +1,10 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { ProfileApp, ProfileFirma } from 'src/hive/lib/types/models';
+import { ProfileApp, ProfileFirma } from '../../hive/lib/types/models';
 import { Observable, Subject } from 'rxjs';
 import * as moment from 'moment';
-import { ResultViewModel, ResultViewModelGeneric } from 'src/hive/lib/types';
+import { ResultViewModel, ResultViewModelGeneric } from '../../hive/lib/types';
 
 @Injectable({providedIn: 'root'})
 export class FirmaService implements OnDestroy {

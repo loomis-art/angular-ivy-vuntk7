@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ResultViewModel } from 'src/hive/lib/types';
+import { ResultViewModel,ResultViewModelGeneric } from '../lib/types';
 
 export interface ICredentials {
   // Customize received credentials here
@@ -9,9 +9,7 @@ export interface ICredentials {
   token: string;
 }
 
-export class CredentialsResult extends ResultViewModel {
-  data: ICredentials;
-}
+
 
 const credentialsKey = 'credentials';
 

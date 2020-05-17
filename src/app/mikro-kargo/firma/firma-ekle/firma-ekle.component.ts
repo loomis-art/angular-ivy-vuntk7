@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ProfileFirma } from 'src/hive/lib/types/models';
-import { MikroKargoFirmaService } from 'src/app/mikro-kargo/_services/mikrokargo-firma.service';
+import { ProfileFirma } from '../../../../hive/lib/types/models';
+import { MikroKargoFirmaService } from '../../_services/mikrokargo-firma.service';
 
 @Component({
     selector: "app-firma-ekle",

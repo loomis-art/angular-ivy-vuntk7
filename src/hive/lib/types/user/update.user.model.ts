@@ -1,3 +1,3 @@
-import { UserModel } from 'src/hive/lib/types/user/user.model';
+import { UserModel } from './user.model';
 
 export class UpdateUserModel extends UserModel { }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ApplicationService } from 'src/app/services/applications.service';
-import { ProfileApp, ProfileFirma } from 'src/hive/lib/types/models';
-import { MikroKargoModule } from 'src/app/mikro-kargo/mikro-kargo.module';
-import { FirmaService } from 'src/app/services/firma.service';
+import { ApplicationService } from '../../services/applications.service';
+import { ProfileApp, ProfileFirma } from '../../../hive/lib/types/models';
+import { MikroKargoModule } from '../mikro-kargo.module';
+import { FirmaService } from '../../services/firma.service';
 
 @Injectable({providedIn: MikroKargoModule})
 export class MikroKargoFirmaService {

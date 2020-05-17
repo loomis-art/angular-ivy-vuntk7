@@ -11,9 +11,8 @@ import {
     Router
 } from '@angular/router';
 import {Observable} from 'rxjs';
-import {CredentialsService} from 'src/hive/auth/credentials.service';
+import {CredentialsService} from '../auth/credentials.service';
 
-const log = new Logger('AuthenticationGuard');
 
 @Injectable({
     providedIn: 'root',

@@ -3,13 +3,11 @@ import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/c
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
-import { RouteReusableStrategy } from 'src/hive/route-reusable-strategy';
+import { RouteReusableStrategy } from './route-reusable-strategy';
 
 
-import { IHiveConfig } from 'src/hive/lib/types/hive-config';
-import { HIVE_CONFIG } from 'src/hive/services/config.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/app/material.module';
+import { MaterialModule } from '../app/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 const THIRD_MODULES = [FlexLayoutModule];
@@ -27,7 +25,7 @@ import {
     MomentDateAdapter,
     MAT_MOMENT_DATE_ADAPTER_OPTIONS
 } from '@angular/material-moment-adapter';
-import { PageHeaderComponent } from 'src/hive/components/page-header/page-header.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
 
 
 export const MY_FORMATS = {
@@ -42,7 +40,7 @@ export const MY_FORMATS = {
 
 @NgModule({
     declarations: [PageHeaderComponent],
-    imports: [HttpClientModule,MaterialModule, FlexLayoutModule],
+    imports: [HttpClientModule, MaterialModule, FlexLayoutModule],
     exports: [
         PageHeaderComponent
     ],
@@ -71,9 +69,7 @@ export class HiveCoreModule {
     constructor(@Optional() @SkipSelf() parentModule: HiveCoreModule) {
         // Import guard
         if (parentModule) {
-            throw new Error(
-                `Hive Core has already been loaded. Import Core module in the AppModule only.`
-            );
+            throw new Error(`Hive Core has already been loaded. Import Core module in the AppModule only.`);
         }
     }
 
