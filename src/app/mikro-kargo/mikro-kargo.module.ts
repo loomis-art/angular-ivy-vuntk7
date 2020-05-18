@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { HiveModule } from "../../hive/hive.module";
 import { MaterialModule } from "../material.module";

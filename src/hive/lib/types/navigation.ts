@@ -3,7 +3,7 @@ export interface Tag {
   translate?: string;
   bg?: string;
   fg?: string;
-  color: string; // Background Color
+  color: string; // background Color
   value: string;
 }
 

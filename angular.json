@@ -73,7 +73,7 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
+            "tsConfig": "src/tsconfig.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": ["styles.scss"],
             "scripts": [],
@@ -83,7 +83,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["./tsconfig.app.json", "./tsconfig.spec.json"],
+            "tsConfig": ["./tsconfig.app.json"],
             "exclude": ["**/node_modules/**"]
           }
         }

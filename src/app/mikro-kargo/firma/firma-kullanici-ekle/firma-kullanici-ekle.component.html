@@ -1,115 +1,59 @@
 <div class="hive-page-wrapper">
-  <hive-page-header [title]="'Firma Kullanıcı Ekle'"></hive-page-header>
-  <mat-card>
-    <div fxLayout="row" class="form100 colpad10">
-      <div flxLayout="column" fxFlex="50">
-        <mat-form-field appearance="outline">
-          <mat-label>Firma</mat-label>
-          <mat-select
-            placeholder="Firma"
-            name="anafirma"
-            [(ngModel)]="selectedFirmaId"
-            (ngModelChange)="firmaChanged()"
-          >
-            <mat-option
-              *ngFor="
-                let xfirma of mikroKargoFirmaService.mikroKargofirmaListesi
-              "
-              [value]="xfirma.Id"
-            >
-              {{ xfirma.Unvani }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Adı</mat-label>
-          <input
-            matInput
-            [(ngModel)]="yeniKullanici.Adi"
-            name="scenarioName"
-            #adi="ngModel"
-            placeholder="Ticari Ünvan"
-            class="form-control"
-            required
-            minlength="3"
-          />
-          <mat-icon matSuffix class="secondary-text">user</mat-icon>
-          <mat-error [hidden]="adi.valid"
-            >Adı en az 3 karakter olmalı</mat-error
-          >
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Soyadı</mat-label>
-          <input
-            matInput
-            [(ngModel)]="yeniKullanici.Soyadi"
-            name="scenarioName"
-            #soyadi="ngModel"
-            class="form-control"
-            required
-            minlength="3"
-          />
-          <mat-error [hidden]="soyadi.valid"
-            >Soyadı en az 3 karakter olmalı
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Mobil</mat-label>
-          <input
-            matInput
-            [(ngModel)]="yeniKullanici.Mobile"
-            name="scenarioName"
-            #mobile="ngModel"
-            placeholder="Ticari Ünvan"
-            class="form-control"
-            required
-          />
-          <mat-error [hidden]="mobile.valid">Cep Telefonu girilmeli.</mat-error>
-        </mat-form-field>
-      </div>
+    <hive-page-header [title]="'Firma Kullanıcı Ekle'"></hive-page-header>
+    <mat-card>
+        <div fxLayout="row" class="form100 colpad10">
+            <div flxLayout="column" fxFlex="50">
+                <mat-form-field appearance="outline">
+                    <mat-label>Firma</mat-label>
+                    <mat-select placeholder="Firma" name="anafirma" [(ngModel)]="selectedFirmaId" (ngModelChange)="firmaChanged()">
+                        <mat-option *ngFor="let xfirma of mikroKargoFirmaService.mikroKargofirmaListesi" [value]="xfirma.Id">
+                            {{ xfirma.Unvani }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Adı</mat-label>
+                    <input matInput [(ngModel)]="yeniKullanici.Adi" name="scenarioName" #adi="ngModel" placeholder="Ticari Ünvan" class="form-control" required minlength="3"/>
+                    <mat-icon matSuffix class="secondary-text">user</mat-icon>
+                    <mat-error [hidden]="adi.valid">Adı en az 3 karakter olmalı
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Soyadı</mat-label>
+                    <input matInput [(ngModel)]="yeniKullanici.Soyadi" name="scenarioName" #soyadi="ngModel" class="form-control" required minlength="3"/>
+                    <mat-error [hidden]="soyadi.valid">Soyadı en az 3 karakter olmalı
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Mobil</mat-label>
+                    <input matInput [(ngModel)]="yeniKullanici.Mobile" name="scenarioName" #mobile="ngModel" placeholder="Ticari Ünvan" class="form-control" required/>
+                    <mat-error [hidden]="mobile.valid">Cep Telefonu girilmeli.</mat-error>
+                </mat-form-field>
+            </div>
 
-      <div flxLayout="column" fxFlex="50">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            [(ngModel)]="yeniKullanici.Email"
-            type="email"
-            #email="ngModel"
-            required
-          />
-          <mat-icon matSuffix class="secondary-text">mail</mat-icon>
-          <mat-error [hidden]="email.valid">email adresi girilmeli</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Şifre</mat-label>
-          <input
-            matInput
-            type="password"
-            [(ngModel)]="yeniKullanici.PasswordHash"
-            #sifre1="ngModel"
-            required
-          />
-          <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
-          <mat-error [hidden]="sifre1.valid">Şifre girilmeli</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Şifre (Doğrula)</mat-label>
-          <input
-            matInput
-            type="password"
-            [(ngModel)]="PasswordHashCheck"
-            #sifre2="ngModel"
-            required
-          />
-          <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
-          <mat-error [hidden]="sifre2.valid">Şifre girilmeli</mat-error>
-          <mat-error [hidden]="sifre1 === sifre2"
-            >Şifreler aynı olmalı</mat-error
-          >
-        </mat-form-field>
-      </div>
-    </div>
-    {{ yeniKullanici | json }}
-  </mat-card>
+            <div flxLayout="column" fxFlex="50">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput [(ngModel)]="yeniKullanici.Email" type="email" #email="ngModel" required/>
+                    <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+                    <mat-error [hidden]="email.valid">email adresi girilmeli</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Şifre</mat-label>
+                    <input matInput type="password" [(ngModel)]="yeniKullanici.PasswordHash" #sifre1="ngModel" required/>
+                    <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+                    <mat-error [hidden]="sifre1.valid">Şifre girilmeli</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Şifre (Doğrula)</mat-label>
+                    <input matInput type="password" [(ngModel)]="PasswordHashCheck" #sifre2="ngModel" required/>
+                    <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+                    <mat-error [hidden]="sifre2.valid">Şifre girilmeli</mat-error>
+                    <mat-error [hidden]="sifre1 === sifre2">Şifreler aynı olmalı
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        {{ yeniKullanici | json }}
+    </mat-card>
 </div>

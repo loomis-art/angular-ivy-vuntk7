@@ -3,7 +3,6 @@ import { ApplicationService } from "../../services/applications.service";
 import { ProfileApp, ProfileFirma } from "../../../hive/lib/types/models";
 import { MikroKargoModule } from "../mikro-kargo.module";
 import { FirmaService } from "../../services/firma.service";
-import { of } from "rxjs";
 
 @Injectable({ providedIn: MikroKargoModule })
 export class MikroKargoFirmaService {

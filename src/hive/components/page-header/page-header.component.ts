@@ -3,13 +3,12 @@ import {
   OnInit,
   ViewEncapsulation,
   Input,
-  HostBinding,
   ChangeDetectorRef
 } from "@angular/core";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 
-// TODO: Change host with @HostListener
+// tODO: Change host with @HostListener
 @Component({
   selector: "hive-page-header",
   host: { class: "hive-page-header" },

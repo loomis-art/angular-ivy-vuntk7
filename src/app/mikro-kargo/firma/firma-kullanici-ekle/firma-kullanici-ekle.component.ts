@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {
-  IdentityApplicationUser,
-  IdentityApplicationUserFirma,
-  ProfileFirma
+  IdentityApplicationUser
 } from "../../../../hive/lib/types/models";
 import { MikroKargoFirmaService } from "../../_services/mikrokargo-firma.service";
 
@@ -14,7 +12,7 @@ import { MikroKargoFirmaService } from "../../_services/mikrokargo-firma.service
 export class FirmaKullaniciEkleComponent implements OnInit {
   selectedFirmaId: string;
   PasswordHashCheck: string = undefined;
-  // TODO: Use RegisterViewModel
+  // tODO: Use RegisterViewModel
   yeniKullanici: IdentityApplicationUser = {
     AccessFailedCount: 0,
     Adi: "",

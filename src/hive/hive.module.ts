@@ -5,17 +5,14 @@ import {
   ModuleWithProviders
 } from "@angular/core";
 import {
-  CommonModule,
   LocationStrategy,
   PathLocationStrategy
 } from "@angular/common";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { RouteReuseStrategy, RouterModule } from "@angular/router";
+import { RouteReuseStrategy } from "@angular/router";
 import { RouteReusableStrategy } from "./route-reusable-strategy";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from "../app/material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import * as moment from "moment";
 import "moment/locale/tr";
 import {
   MAT_DATE_LOCALE,
@@ -23,7 +20,6 @@ import {
   MAT_DATE_FORMATS
 } from "@angular/material/core";
 import {
-  MAT_MOMENT_DATE_FORMATS,
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS
 } from "@angular/material-moment-adapter";
@@ -68,7 +64,7 @@ export class HiveModule {}
 @NgModule({})
 export class HiveCoreModule {
   constructor(@Optional() @SkipSelf() parentModule: HiveCoreModule) {
-    // Import guard
+    // import guard
     if (parentModule) {
       throw new Error(
         `Hive Core has already been loaded. Import Core module in the AppModule only.`

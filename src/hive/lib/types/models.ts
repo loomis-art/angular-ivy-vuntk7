@@ -2,29 +2,29 @@ export class ProfileAdres {
   Adres1: string;
   Adres2: string;
   Postakodu: string;
-  FirmaId: string; // Guid
+  FirmaId: string; // guid
   Firma: ProfileFirma;
-  UlkeId: string; // Guid
+  UlkeId: string; // guid
   Ulke: DetailUlke;
-  IlId: string; // Guid
+  IlId: string; // guid
   Il: DetailIl;
-  IlceId: string; // Guid
+  IlceId: string; // guid
   Ilce: DetailIlce;
   fatura: boolean;
   gonderi: boolean;
   Aciklama: string;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class ProfileApp {
   Ad: string;
   Description: string;
-  ApplicationUserApps: IdentityApplicationUserApp[]; // Identity.ApplicationUserApp
-  Id: string; // Guid
+  ApplicationUserApps: IdentityApplicationUserApp[]; // identity.ApplicationUserApp
+  Id: string; // guid
 }
 
 export class ProfileFirma {
-  AnaFirmaId?: string; // Guid
+  AnaFirmaId?: string; // guid
   AnaFirma?: ProfileFirma;
   FirmaKodu: string;
   KisaAdi: string;
@@ -37,7 +37,7 @@ export class ProfileFirma {
   MKodu: string;
   Alici: boolean;
   Gonderici: boolean;
-  FirmaTuru: "GöndericiAliciFirma" | "KargoFirmasi"; // KanpinarCoreEnumsFirmaTuru
+  FirmaTuru: "GöndericiAliciFirma" | "KargoFirmasi"; // kanpinarCoreEnumsFirmaTuru
   MusteriTemsilcisiId?: number;
   Aktif: boolean;
   Type: number;
@@ -47,16 +47,16 @@ export class ProfileFirma {
   SubeAdi: string;
   BolgeIdd: number;
   BolgeAdi: string;
-  AltFirmalar: ProfileFirma[]; // Profile.Firma
-  Adresler: ProfileAdres[]; // Profile.Adres
-  IletisimBilgileri: ProfileFirmaIletisimBilgi[]; // Profile.FirmaIletisimBilgi
-  ApplicationUserFirmas: IdentityApplicationUserFirma[]; // Identity.ApplicationUserFirma
-  Gonderdikleri: LdkGonderi[]; // Ldk.Gonderi
-  Aldiklari: LdkGonderi[]; // Ldk.Gonderi
-  Faturalari: LdkGonderi[]; // Ldk.Gonderi
-  Kargolari: LdkGonderi[]; // Ldk.Gonderi
-  Sozlesmeleri: ProfileSozlesme[]; // Profile.Sozlesme
-  Id: string; // Guid
+  AltFirmalar: ProfileFirma[]; // profile.Firma
+  Adresler: ProfileAdres[]; // profile.Adres
+  IletisimBilgileri: ProfileFirmaIletisimBilgi[]; // profile.FirmaIletisimBilgi
+  ApplicationUserFirmas: IdentityApplicationUserFirma[]; // identity.ApplicationUserFirma
+  Gonderdikleri: LdkGonderi[]; // ldk.Gonderi
+  Aldiklari: LdkGonderi[]; // ldk.Gonderi
+  Faturalari: LdkGonderi[]; // ldk.Gonderi
+  Kargolari: LdkGonderi[]; // ldk.Gonderi
+  Sozlesmeleri: ProfileSozlesme[]; // profile.Sozlesme
+  Id: string; // guid
   MusteriTuru: string;
   SozlesmeBaslangici: Date;
   SozlesmeyiYapan: string;
@@ -72,132 +72,132 @@ export class ProfileFirma {
 }
 
 export class ProfileFirmaIletisimBilgi {
-  IlatisimTuru: "Telefon" | "Fax" | "CepTelefonu" | "Email"; // KanpinarCoreEnumsIletisimTuru
+  IlatisimTuru: "Telefon" | "Fax" | "CepTelefonu" | "Email"; // kanpinarCoreEnumsIletisimTuru
   IletisimBilgisi: string;
   Aciklama: string;
   Sira: number;
-  FirmaId: string; // Guid
+  FirmaId: string; // guid
   Firma: ProfileFirma;
   Aktif: boolean;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class ProfileKisiIletisimBilgi {
-  IletisimTuru: "Telefon" | "Fax" | "CepTelefonu" | "Email"; // KanpinarCoreEnumsIletisimTuru
+  IletisimTuru: "Telefon" | "Fax" | "CepTelefonu" | "Email"; // kanpinarCoreEnumsIletisimTuru
   IletisimBilgisi: string;
   Aciklama: string;
   Sira: number;
-  ApplicationUserId: string; // Guid
+  ApplicationUserId: string; // guid
   User: IdentityApplicationUser;
   Aktif: boolean;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class ProfileSozlesme {
-  FirmaId: string; // Guid
+  FirmaId: string; // guid
   Firma: ProfileFirma;
   SozlemeGecerlilikBaslangic: Date;
   SozlemeGecerlilikBitis: Date;
   KargoDahil: boolean;
   SabitKargoUcretli: boolean;
-  SabitKargoUcreti: number; // Decimal
+  SabitKargoUcreti: number; // decimal
   SabitKargoUcretiDovizCinsi: number;
-  MinDeger: number; // Decimal
-  MaxDeger: number; // Decimal
-  SigortaBedeli: number; // Decimal
-  DesiBasina: number; // Decimal
-  SozlesmeFiyatAraliklari: ProfileSozlesmeFiyatAraligi[]; // Profile.SozlesmeFiyatAraligi
-  SozlesmeKargoFirmaFiyatlari: ProfileSozlesmeKargoFirmaFiyat[]; // Profile.SozlesmeKargoFirmaFiyat
+  MinDeger: number; // decimal
+  MaxDeger: number; // decimal
+  SigortaBedeli: number; // decimal
+  DesiBasina: number; // decimal
+  SozlesmeFiyatAraliklari: ProfileSozlesmeFiyatAraligi[]; // profile.SozlesmeFiyatAraligi
+  SozlesmeKargoFirmaFiyatlari: ProfileSozlesmeKargoFirmaFiyat[]; // profile.SozlesmeKargoFirmaFiyat
   Aktif: boolean;
   suresigecmis: boolean;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class ProfileSozlesmeFiyatAraligi {
-  SozlemeId: string; // Guid
+  SozlemeId: string; // guid
   Sozleme: ProfileSozlesme;
-  min: number; // Decimal
-  max: number; // Decimal
-  fiyat: number; // Decimal
+  min: number; // decimal
+  max: number; // decimal
+  fiyat: number; // decimal
   DovizCinsi: number;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class ProfileSozlesmeKargoFirmaFiyat {
-  SozlemeId: string; // Guid
+  SozlemeId: string; // guid
   Sozleme: ProfileSozlesme;
   KargoFirmaId: number;
   KargoFirma: ProfileFirma;
-  Fiyat: number; // Decimal
+  Fiyat: number; // decimal
   DovizCinsi: number;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class LdkGonderi {
   IslemTarihi: Date;
   source: string;
-  GondericiFirmaId: string; // Guid
+  GondericiFirmaId: string; // guid
   GondericiFirma: ProfileFirma;
   GondericiFirmaKodu: string;
   GondericiFirmaAdi: string;
   GondericiAdres1: string;
   GondericiAdres2: string;
   GondericiPostakodu: string;
-  GondericiUlkeId: string; // Guid
-  GondericiUlkeKodu: string; // Guid
+  GondericiUlkeId: string; // guid
+  GondericiUlkeKodu: string; // guid
   GondericiUlke: string;
-  GondericiIlId: string; // Guid
+  GondericiIlId: string; // guid
   GondericiIlKodu: number;
   GondericiIl: string;
-  GondericiIlceId: string; // Guid
+  GondericiIlceId: string; // guid
   GondericiIlceKodu: number;
   GondericiIlce: string;
   GondericiVergiDairesi: string;
   GondericiVergiNo: string;
-  AliciFirmaId: string; // Guid
+  AliciFirmaId: string; // guid
   AliciFirmaKodu: string;
   AliciFirmaAdi: string;
   AliciFirma: ProfileFirma;
   AliciAdres1: string;
   AliciAdres2: string;
   AliciPostakodu: string;
-  AliciUlkeId: string; // Guid
+  AliciUlkeId: string; // guid
   AliciUlkeKodu: number;
   AliciUlke: string;
-  AliciIlId: string; // Guid
+  AliciIlId: string; // guid
   AliciIlKodu: number;
   AliciIl: string;
-  AliciIlceId: string; // Guid
+  AliciIlceId: string; // guid
   AliciIlceKodu: number;
   AliciIlce: string;
   AliciVergiDairesi: string;
   AliciVergiNo: string;
-  FaturaFirmaId: string; // Guid
+  FaturaFirmaId: string; // guid
   FaturaFirmaKodu: string;
   FaturaFirmaAdi: string;
   FaturaFirma: ProfileFirma;
   FaturaAdres1: string;
   FaturaAdres2: string;
   FaturaPostakodu: string;
-  FaturaUlkeId: string; // Guid
+  FaturaUlkeId: string; // guid
   FaturaUlkeKodu: number;
   FaturaUlke: string;
-  FaturaIlId: string; // Guid
+  FaturaIlId: string; // guid
   FaturaIlKodu: number;
   FaturaIl: string;
-  FaturaIlceId: string; // Guid
+  FaturaIlceId: string; // guid
   FaturaIlceKodu: number;
   FaturaIlce: string;
   FaturaVergiDairesi: string;
   FaturaVergiNo: string;
   DovizCinsi: number;
-  UrunId: string; // Guid
+  UrunId: string; // guid
   Urun: DetailUrun;
-  MalBedeli: number; // Decimal
+  MalBedeli: number; // decimal
   OdemeTuru: string;
   Aciklama: string;
   Iptal: boolean;
-  KargoFirmaId: string; // Guid
+  KargoFirmaId: string; // guid
   KargoFirma: ProfileFirma;
   KargoTakipKodu: string;
   MuhurNumarasi: string;
@@ -209,36 +209,36 @@ export class LdkGonderi {
   CargoKey: string;
   InvoiceKey: string;
   trackingUrl: string;
-  totalAmount: number; // Decimal
-  totalDesi: number; // Decimal
-  totalDesiKg: number; // Decimal
-  totalKg: number; // Decimal
-  totalPrice: number; // Decimal
-  totalVat: number; // Decimal
+  totalAmount: number; // decimal
+  totalDesi: number; // decimal
+  totalDesiKg: number; // decimal
+  totalKg: number; // decimal
+  totalPrice: number; // decimal
+  totalVat: number; // decimal
   cargoEventExplaination: string;
   cargoReasonExplaination: string;
   cargoReasonId: string;
   cargoEventName: string;
   cargoEventId: string;
   OperationCode: number;
-  KargoDurumlari: LdkGonderiKargoDurum[]; // Ldk.GonderiKargoDurum
+  KargoDurumlari: LdkGonderiKargoDurum[]; // ldk.GonderiKargoDurum
   topluid: string;
   SozlesmeNo: number;
   SozlesmeTipi: string;
-  SigortaBedeli: number; // Decimal
-  SigortaUcreti: number; // Decimal
-  ExtraDesi: number; // Decimal
-  ExtraDesiBasina: number; // Decimal
-  ExtraDesiUcreti: number; // Decimal
-  KargoUcreti: number; // Decimal
+  SigortaBedeli: number; // decimal
+  SigortaUcreti: number; // decimal
+  ExtraDesi: number; // decimal
+  ExtraDesiBasina: number; // decimal
+  ExtraDesiUcreti: number; // decimal
+  KargoUcreti: number; // decimal
   KargoUcretDovizCinsi: number;
-  ToplamKargoUcreti: number; // Decimal
-  ToplamUcret: number; // Decimal
+  ToplamKargoUcreti: number; // decimal
+  ToplamUcret: number; // decimal
   Ekip: string;
   MarketplaceNumarasi: string;
   Sirasi: number;
-  UserId?: string; // Guid
-  UserFirmaId?: string; // Guid
+  UserId?: string; // guid
+  UserFirmaId?: string; // guid
   Mail: boolean;
   MailDate?: Date;
   OdemeYapildi: boolean;
@@ -248,7 +248,7 @@ export class LdkGonderi {
   ShipmentNo: string;
   barcode: string;
   barcodeurl: string;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class LdkGonderiKargoDurum {
@@ -258,20 +258,20 @@ export class LdkGonderiKargoDurum {
   UpdatedAt: Date;
   CreatedBy: string;
   UpdatedBy: string;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class IdentityApplicationClaim {
   ClaimType: string;
   ClaimValue: string;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class IdentityApplicationRole {
   Description: string;
-  ApplicationRoleClaims: IdentityApplicationRoleClaim[]; // Identity.ApplicationRoleClaim
-  ApplicationUserRoles: IdentityApplicationUserRole[]; // Identity.ApplicationUserRole
-  Id: string; // Guid
+  ApplicationRoleClaims: IdentityApplicationRoleClaim[]; // identity.ApplicationRoleClaim
+  ApplicationUserRoles: IdentityApplicationUserRole[]; // identity.ApplicationUserRole
+  Id: string; // guid
   Name: string;
   NormalizedName: string;
   ConcurrencyStamp: string;
@@ -280,7 +280,7 @@ export class IdentityApplicationRole {
 export class IdentityApplicationRoleClaim {
   Role: IdentityApplicationRole;
   Id: number;
-  RoleId: string; // Guid
+  RoleId: string; // guid
   ClaimType: string;
   ClaimValue: string;
 }
@@ -295,13 +295,13 @@ export class IdentityApplicationUser {
   SubeId?: number;
   ApiUser: boolean;
   Name: string;
-  ApplicationUserClaims: IdentityApplicationUserClaim[]; // Identity.ApplicationUserClaim
-  ApplicationUserLogins: IdentityApplicationUserLogin[]; // Identity.ApplicationUserLogin
-  ApplicationUserRoles: IdentityApplicationUserRole[]; // Identity.ApplicationUserRole
-  IletisimBilgileri: ProfileKisiIletisimBilgi[]; // Profile.KisiIletisimBilgi
-  ApplicationUserFirmas: IdentityApplicationUserFirma[]; // Identity.ApplicationUserFirma
-  ApplicationUserApps: IdentityApplicationUserApp[]; // Identity.ApplicationUserApp
-  Id: string; // Guid
+  ApplicationUserClaims: IdentityApplicationUserClaim[]; // identity.ApplicationUserClaim
+  ApplicationUserLogins: IdentityApplicationUserLogin[]; // identity.ApplicationUserLogin
+  ApplicationUserRoles: IdentityApplicationUserRole[]; // identity.ApplicationUserRole
+  IletisimBilgileri: ProfileKisiIletisimBilgi[]; // profile.KisiIletisimBilgi
+  ApplicationUserFirmas: IdentityApplicationUserFirma[]; // identity.ApplicationUserFirma
+  ApplicationUserApps: IdentityApplicationUserApp[]; // identity.ApplicationUserApp
+  Id: string; // guid
   UserName: string;
   NormalizedUserName: string;
   Email: string;
@@ -318,23 +318,23 @@ export class IdentityApplicationUser {
 }
 
 export class IdentityApplicationUserApp {
-  ApplicationId: string; // Guid
+  ApplicationId: string; // guid
   Application?: ProfileApp;
-  ApplicationUserId: string; // Guid
+  ApplicationUserId: string; // guid
   User?: IdentityApplicationUser;
 }
 
 export class IdentityApplicationUserClaim {
   User: IdentityApplicationUser;
   Id: number;
-  UserId: string; // Guid
+  UserId: string; // guid
   ClaimType: string;
   ClaimValue: string;
 }
 
 export class IdentityApplicationUserFirma {
-  ApplicationUserId: string; // Guid
-  FirmaId: string; // Guid
+  ApplicationUserId: string; // guid
+  FirmaId: string; // guid
   User?: IdentityApplicationUser;
   Firma?: ProfileFirma;
 }
@@ -343,7 +343,7 @@ export class IdentityApplicationUserGroup {
   Name: string;
   NormalizedName: string;
   Type: string;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class IdentityApplicationUserLogin {
@@ -351,18 +351,18 @@ export class IdentityApplicationUserLogin {
   LoginProvider: string;
   ProviderKey: string;
   ProviderDisplayName: string;
-  UserId: string; // Guid
+  UserId: string; // guid
 }
 
 export class IdentityApplicationUserRole {
   Role: IdentityApplicationRole;
   User: IdentityApplicationUser;
-  UserId: string; // Guid
-  RoleId: string; // Guid
+  UserId: string; // guid
+  RoleId: string; // guid
 }
 
 export class IdentityApplicationUserToken {
-  UserId: string; // Guid
+  UserId: string; // guid
   LoginProvider: string;
   Name: string;
   Value: string;
@@ -371,66 +371,66 @@ export class IdentityApplicationUserToken {
 export class IdentityModelsApplicationUserViewModel {
   email: string;
   username: string;
-  id: string; // Guid
+  id: string; // guid
   token: string;
 }
 
 export class DetailIl {
   Adi: string;
   plaka: number;
-  UlkeId: string; // Guid
+  UlkeId: string; // guid
   Ulke: DetailUlke;
   Aktif: boolean;
   upsid: number;
-  Ilceler: DetailIlce[]; // Detail.Ilce
-  Adresler: ProfileAdres[]; // Profile.Adres
-  Id: string; // Guid
+  Ilceler: DetailIlce[]; // detail.Ilce
+  Adresler: ProfileAdres[]; // profile.Adres
+  Id: string; // guid
 }
 
 export class DetailIlce {
   Adi: string;
-  IlId: string; // Guid
+  IlId: string; // guid
   Il: DetailIl;
-  Adresler: ProfileAdres[]; // Profile.Adres
+  Adresler: ProfileAdres[]; // profile.Adres
   Aktif: boolean;
   upsid: number;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class DetailKita {
   Adi: string;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class DetailUlke {
   Adi: string;
   Code: string;
-  KitaId?: string; // Guid
+  KitaId?: string; // guid
   Kita: DetailKita;
-  Iller: DetailIl[]; // Detail.Il
-  Adresler: ProfileAdres[]; // Profile.Adres
+  Iller: DetailIl[]; // detail.Il
+  Adresler: ProfileAdres[]; // profile.Adres
   Aktif: boolean;
-  Id: string; // Guid
+  Id: string; // guid
 }
 
 export class DetailUrun {
   UrunKodu: string;
   UrunAdi: string;
-  Kdv: number; // Decimal
-  Otv: number; // Decimal
+  Kdv: number; // decimal
+  Otv: number; // decimal
   Doviz: number;
   Aciklama: string;
   UrunGrupId?: number;
   UrunGrup: DetailUrunGrup;
   Aktif: boolean;
-  Gonderiler: LdkGonderi[]; // Ldk.Gonderi
-  Id: string; // Guid
+  Gonderiler: LdkGonderi[]; // ldk.Gonderi
+  Id: string; // guid
 }
 
 export class DetailUrunGrup {
   UrunGrupKodu: string;
   UrunGrupAdi: string;
-  Urunler: DetailUrun[]; // Detail.Urun
+  Urunler: DetailUrun[]; // detail.Urun
   Aktif: boolean;
-  Id: string; // Guid
+  Id: string; // guid
 }

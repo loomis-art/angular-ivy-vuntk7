@@ -2,8 +2,7 @@ import { Injectable, OnDestroy } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ProfileApp } from "../../hive/lib/types/models";
 import { Observable, Subject } from "rxjs";
-import * as moment from "moment";
-import { ResultViewModel, ResultViewModelGeneric } from "../../hive/lib/types";
+import { ResultViewModelGeneric } from "../../hive/lib/types";
 
 @Injectable({ providedIn: "root" })
 export class ApplicationService implements OnDestroy {
@@ -19,7 +18,7 @@ export class ApplicationService implements OnDestroy {
     return this.http.get<ResultViewModelGeneric<ProfileApp[]>>(
       "/api/application/list"
     );
-    // TODO:@mkan .. environment.serverDataTimeout implementation...
+    // tODO:@mkan .. environment.serverDataTimeout implementation...
     // if (environment.serverDataTimeout > 0 && // ServerTimeOut that i want to use so >0 defined in environment...
     //     this.lastCall && // I have a call already done. So check timeout next
     //     (moment().isAfter(moment(this.lastCall).add(environment.serverDataTimeout, 'millisecond')))) {
