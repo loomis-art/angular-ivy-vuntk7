@@ -6,13 +6,16 @@
                 <div fxLayout="row" class="form100 colpad10">
                     <div flxLayout="column" fxFlex="50">
                         <div fxLayout="row">
-                            <mat-checkbox [(ngModel)]="firma.SubeliFirma" (change)="SubeliFirmaDegisti(firma.SubeliFirma)" style="vertical-align: middle;line-height: 60px;padding-right: 10px;">Şubeli</mat-checkbox>
+                            <mat-checkbox [(ngModel)]="firma.SubeliFirma" (change)="SubeliFirmaDegisti(firma.SubeliFirma)" style="vertical-align: middle;line-height: 60px;padding-right: 10px;">Şubeli
+                            </mat-checkbox>
                             <mat-form-field appearance="outline">
                                 <mat-label>Ana Firma</mat-label>
                                 <mat-select placeholder="Ana Firma" name="anafirma" [(ngModel)]="firma.AnaFirmaId" [disabled]="firma.SubeliFirma">
                                     <mat-option>Ana Firması Yok</mat-option>
-                                    <mat-option *ngFor="let xfirma of mikroKargoFirmaService.anaFirmaListesi " [value]="xfirma.Id">
-                                        {{xfirma.Unvani}}
+                                    <mat-option *ngFor="
+                      let xfirma of mikroKargoFirmaService.anaFirmaListesi
+                    " [value]="xfirma.Id">
+                                        {{ xfirma.Unvani }}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>

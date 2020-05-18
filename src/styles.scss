@@ -7,7 +7,7 @@ $hive-page-padding      : 16px;
   padding : $hive-page-padding;
 
   .hive-page-header {
-    //padding          : 5px $hive-page-padding;
+    padding          : 5px $hive-page-padding;
     background-color : #008dd2 !important;
 
     .hive-page-title { margin : 0 0 5px !important; }
@@ -26,4 +26,6 @@ $hive-page-padding      : 16px;
     [flxLayout="column"]:not(:last-of-type) {padding-right : 10px}
 
   }
+
+  .dx-master-detail-cell {padding : 16px !important;}
 }

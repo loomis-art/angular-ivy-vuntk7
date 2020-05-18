@@ -5,7 +5,7 @@ import { MikroKargoFirmaService } from '../../_services/mikrokargo-firma.service
 @Component({
     selector: "app-firma-ekle",
     templateUrl: "./firma-ekle.component.html",
-    styleUrls: ["./firma-ekle.component.css"]
+    styleUrls: ["./firma-ekle.component.scss"]
 })
 export class FirmaEkleComponent implements OnInit {
 
