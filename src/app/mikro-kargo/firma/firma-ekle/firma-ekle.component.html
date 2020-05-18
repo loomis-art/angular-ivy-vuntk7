@@ -12,9 +12,7 @@
                                 <mat-label>Ana Firma</mat-label>
                                 <mat-select placeholder="Ana Firma" name="anafirma" [(ngModel)]="firma.AnaFirmaId" [disabled]="firma.SubeliFirma">
                                     <mat-option>Ana Firması Yok</mat-option>
-                                    <mat-option *ngFor="
-                      let xfirma of mikroKargoFirmaService.anaFirmaListesi
-                    " [value]="xfirma.Id">
+                                    <mat-option *ngFor="let xfirma of mikroKargoFirmaService.anaFirmaListesi" [value]="xfirma.Id">
                                         {{ xfirma.Unvani }}
                                     </mat-option>
                                 </mat-select>

@@ -10,7 +10,7 @@ export class MikroKargoFirmaService {
     anaFirmaListesi: ProfileFirma[];
     mikroKargofirmaListesi: ProfileFirma[] = [];
     private appName = 'MIKROKARGO';
-    private application: ProfileApp;
+    public application: ProfileApp;
 
     constructor(
         private appService: ApplicationService,

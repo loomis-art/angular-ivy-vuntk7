@@ -319,9 +319,9 @@ export class IdentityApplicationUser {
 
 export class IdentityApplicationUserApp {
     ApplicationId: string; // Guid
-    Application: ProfileApp;
+    Application?: ProfileApp;
     ApplicationUserId: string; // Guid
-    User: IdentityApplicationUser;
+    User?: IdentityApplicationUser;
 }
 
 export class IdentityApplicationUserClaim {
@@ -335,8 +335,8 @@ export class IdentityApplicationUserClaim {
 export class IdentityApplicationUserFirma {
     ApplicationUserId: string; // Guid
     FirmaId: string; // Guid
-    User: IdentityApplicationUser;
-    Firma: ProfileFirma;
+    User?: IdentityApplicationUser;
+    Firma?: ProfileFirma;
 }
 
 export class IdentityApplicationUserGroup {

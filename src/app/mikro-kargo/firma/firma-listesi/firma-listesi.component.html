@@ -1,43 +1,45 @@
-<hive-page-header [title]="'Firma Listesi'" [showBreadCrumb]="false"></hive-page-header>
-<mat-card>
-    <mat-toolbar>
-        <mat-toolbar-row flexLayout="row">
-            <div>&nbsp;</div>
-            <span flex>&nbsp;</span>
-            <button mat-button (click)="mikroKargoFirmaService.FirmaListesi()">
-                Yenile
-            </button>
-        </mat-toolbar-row>
-    </mat-toolbar>
-    <mat-card-content style="overflow: scroll;max-width: 100%">
-        <dx-data-grid id="mikro-kargo-firma-listesi" [dataSource]="mikroKargoFirmaService.mikroKargofirmaListesi" [columnAutoWidth]="true" [showBorders]="true" [wordWrapEnabled]="false" [sorting]="{ enabled: true,showSortIndexes:true  }" [masterDetail]="{ enabled: true, template: 'firmaDetay' }">
-            <dxo-search-panel [visible]="true" [width]="240" placeholder="Ara..."></dxo-search-panel>
-            <dxo-load-panel enabled="true" text="'Yükleniyor...'"></dxo-load-panel>
+<div class="hive-page-wrapper">
+    <hive-page-header [title]="'Firma Listesi'" [showBreadCrumb]="false"></hive-page-header>
+    <mat-card>
+        <mat-toolbar>
+            <mat-toolbar-row flexLayout="row">
+                <div>&nbsp;</div>
+                <span flex>&nbsp;</span>
+                <button mat-button (click)="mikroKargoFirmaService.FirmaListesi()">
+                    Yenile
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-card-content style="overflow: scroll;max-width: 100%">
+            <dx-data-grid id="mikro-kargo-firma-listesi" [dataSource]="mikroKargoFirmaService.mikroKargofirmaListesi" [columnAutoWidth]="true" [showBorders]="true" [wordWrapEnabled]="false" [sorting]="{ enabled: true,showSortIndexes:true  }" [masterDetail]="{ enabled: true, template: 'firmaDetay' }">
+                <dxo-search-panel [visible]="true" [width]="240" placeholder="Ara..."></dxo-search-panel>
+                <dxo-load-panel enabled="true" text="'Yükleniyor...'"></dxo-load-panel>
 
-            <dxo-export [enabled]="true" fileName="FirmaListesi"></dxo-export>
-            <dxi-column dataField="SozlesmeBaslangici" dataType="date" format="dd.MM.yyyy"></dxi-column>
-            <dxi-column dataField="AnaFirma.Unvani" caption="Ana Firma"></dxi-column>
-            <dxi-column dataField="KisaAdi" caption="Kisa Adi"></dxi-column>
-            <dxi-column dataField="Unvani" caption="Unvani"></dxi-column>
-            <dxi-column dataField="MuhasebeKodu"></dxi-column>
-            <dxi-column dataField="VergiDairesi"></dxi-column>
-            <dxi-column dataField="VergiNumarası"></dxi-column>
-            <dxi-column dataField="YK" dataType="float"></dxi-column>
-            <dxi-column dataField="UPS"></dxi-column>
-            <dxi-column dataField="SigortaOrani"></dxi-column>
-            <dxi-column dataField="SozlesmeyiYapan"></dxi-column>
-            <dxi-column dataField="MusteriTuru"></dxi-column>
-            <div *dxTemplate="let detay of 'firmaDetay'">
-                <mat-card style="max-width: 500px;overflow: hidden">
-                    <mat-card-header> {{ detay.data.Unvani }}</mat-card-header>
-                    <mat-card-content>
-                        {{ detay.data | json }}
-                        <div *ngFor="let item of detay.data | keyvalue">
-                            <b>{{ item.key }}</b> : <b>{{ item.value }}</b>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-            </div>
-        </dx-data-grid>
-    </mat-card-content>
-</mat-card>
+                <dxo-export [enabled]="true" fileName="FirmaListesi"></dxo-export>
+                <dxi-column dataField="SozlesmeBaslangici" dataType="date" format="dd.MM.yyyy"></dxi-column>
+                <dxi-column dataField="AnaFirma.Unvani" caption="Ana Firma"></dxi-column>
+                <dxi-column dataField="KisaAdi" caption="Kisa Adi"></dxi-column>
+                <dxi-column dataField="Unvani" caption="Unvani"></dxi-column>
+                <dxi-column dataField="MuhasebeKodu"></dxi-column>
+                <dxi-column dataField="VergiDairesi"></dxi-column>
+                <dxi-column dataField="VergiNumarası"></dxi-column>
+                <dxi-column dataField="YK" dataType="float"></dxi-column>
+                <dxi-column dataField="UPS"></dxi-column>
+                <dxi-column dataField="SigortaOrani"></dxi-column>
+                <dxi-column dataField="SozlesmeyiYapan"></dxi-column>
+                <dxi-column dataField="MusteriTuru"></dxi-column>
+                <div *dxTemplate="let detay of 'firmaDetay'">
+                    <mat-card style="max-width: 500px;overflow: hidden">
+                        <mat-card-header> {{ detay.data.Unvani }}</mat-card-header>
+                        <mat-card-content>
+                            {{ detay.data | json }}
+                            <div *ngFor="let item of detay.data | keyvalue">
+                                <b>{{ item.key }}</b> : <b>{{ item.value }}</b>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </dx-data-grid>
+        </mat-card-content>
+    </mat-card>
+</div>
