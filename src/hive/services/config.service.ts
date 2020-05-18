@@ -1,16 +1,16 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { ResolveEnd, Router } from '@angular/router';
-import { Platform } from '@angular/cdk/platform';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
-import * as _ from 'lodash';
-import { IHiveConfig } from '../../hive/lib/types';
+import { Inject, Injectable, InjectionToken } from "@angular/core";
+import { ResolveEnd, Router } from "@angular/router";
+import { Platform } from "@angular/cdk/platform";
+import { BehaviorSubject, Observable } from "rxjs";
+import { filter } from "rxjs/operators";
+import * as _ from "lodash";
+import { IHiveConfig } from "../../hive/lib/types";
 
 // Create the injection token for the custom settings
-export const HIVE_CONFIG = new InjectionToken('hiveCustomConfig');
+export const HIVE_CONFIG = new InjectionToken("hiveCustomConfig");
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class HiveConfigService {
   // Private

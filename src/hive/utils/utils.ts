@@ -6,11 +6,15 @@ export function serialize(obj = {}) {
   for (const k of Object.keys(obj)) {
     arr.push(
       `${k}=${encodeURIComponent(
-        typeof obj[k] === 'string' ? String.prototype.trim.call(obj[k]) : obj[k] === null ? '' : obj[k]
+        typeof obj[k] === "string"
+          ? String.prototype.trim.call(obj[k])
+          : obj[k] === null
+          ? ""
+          : obj[k]
       )}`
     );
   }
-  return arr.join('&');
+  return arr.join("&");
 }
 
 /**
@@ -18,13 +22,13 @@ export function serialize(obj = {}) {
  */
 export function delEmptyKey(obj: {}) {
   const objCpy = {};
-  if (obj === null || obj === undefined || obj === '') {
+  if (obj === null || obj === undefined || obj === "") {
     return objCpy;
   }
   for (const key in obj) {
-    if (obj[key] !== null && typeof obj[key] === 'object') {
+    if (obj[key] !== null && typeof obj[key] === "object") {
       objCpy[key] = this.delEmptyKey(obj[key]);
-    } else if (obj[key] !== null && obj[key] !== undefined && obj[key] !== '') {
+    } else if (obj[key] !== null && obj[key] !== undefined && obj[key] !== "") {
       objCpy[key] = obj[key];
     }
   }
@@ -57,7 +61,7 @@ export function obj2Str(obj: any) {
   const p = {};
   for (const key of Object.keys(obj)) {
     if (obj[key] || obj[key] === 0) {
-      if (obj[key].toString() !== '') {
+      if (obj[key].toString() !== "") {
         // 空数组排除
         p[key] = obj[key].toString();
       }
@@ -70,15 +74,16 @@ export function obj2Str(obj: any) {
  * 去除字符串回车换行空白并转换成数组
  */
 export function str2arr(str: string) {
-  return str.replace(/[\r\n\s]/g, '').split(',');
+  return str.replace(/[\r\n\s]/g, "").split(",");
 }
 
 /**
  * 获取滚动条的宽度
  */
 export function getScrollbarWidth() {
-  const scrollDiv = document.createElement('div');
-  scrollDiv.style.cssText = 'width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;';
+  const scrollDiv = document.createElement("div");
+  scrollDiv.style.cssText =
+    "width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;";
   document.body.appendChild(scrollDiv);
   const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
   document.body.removeChild(scrollDiv);

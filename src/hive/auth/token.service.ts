@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class AppTokenService {
   private storage = sessionStorage;
-  private token = 'token';
+  private token = "token";
 
   clear(): void {
     this.storage.removeItem(this.token);

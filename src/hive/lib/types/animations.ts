@@ -10,532 +10,543 @@ import {
   state,
   animation,
   useAnimation,
-  stagger,
-} from '@angular/animations';
+  stagger
+} from "@angular/animations";
 
 const customAnimation = animation(
   [
     style({
-      opacity: '{{opacity}}',
-      transform: 'scale({{scale}}) translate3d({{x}}, {{y}}, {{z}})',
+      opacity: "{{opacity}}",
+      transform: "scale({{scale}}) translate3d({{x}}, {{y}}, {{z}})"
     }),
-    animate('{{duration}} {{delay}} cubic-bezier(0.0, 0.0, 0.2, 1)', style('*')),
+    animate("{{duration}} {{delay}} cubic-bezier(0.0, 0.0, 0.2, 1)", style("*"))
   ],
   {
     params: {
-      duration: '200ms',
-      delay: '0ms',
-      opacity: '0',
-      scale: '1',
-      x: '0',
-      y: '0',
-      z: '0',
-    },
+      duration: "200ms",
+      delay: "0ms",
+      opacity: "0",
+      scale: "1",
+      x: "0",
+      y: "0",
+      z: "0"
+    }
   }
 );
 
 export const customAnimations = [
-  trigger('animate', [transition('void => *', [useAnimation(customAnimation)])]),
-
-  trigger('animateStagger', [
-    state('50', style('*')),
-    state('100', style('*')),
-    state('200', style('*')),
-
-    transition('void => 50', query('@*', [stagger('50ms', [animateChild()])], { optional: true })),
-    transition('void => 100', query('@*', [stagger('100ms', [animateChild()])], { optional: true })),
-    transition('void => 200', query('@*', [stagger('200ms', [animateChild()])], { optional: true })),
+  trigger("animate", [
+    transition("void => *", [useAnimation(customAnimation)])
   ]),
 
-  trigger('fadeInOut', [
-    state(
-      '0, void',
-      style({
-        opacity: 0,
-      })
+  trigger("animateStagger", [
+    state("50", style("*")),
+    state("100", style("*")),
+    state("200", style("*")),
+
+    transition(
+      "void => 50",
+      query("@*", [stagger("50ms", [animateChild()])], { optional: true })
     ),
-    state(
-      '1, *',
-      style({
-        opacity: 1,
-      })
+    transition(
+      "void => 100",
+      query("@*", [stagger("100ms", [animateChild()])], { optional: true })
     ),
-    transition('1 => 0', animate('300ms ease-out')),
-    transition('0 => 1', animate('300ms ease-in')),
-    transition('void <=> *', animate('300ms ease-in')),
+    transition(
+      "void => 200",
+      query("@*", [stagger("200ms", [animateChild()])], { optional: true })
+    )
   ]),
 
-  trigger('slideInOut', [
+  trigger("fadeInOut", [
     state(
-      '0',
+      "0, void",
       style({
-        height: '0px',
+        opacity: 0
       })
     ),
     state(
-      '1',
+      "1, *",
       style({
-        height: '*',
+        opacity: 1
       })
     ),
-    transition('1 => 0', animate('300ms ease-out')),
-    transition('0 => 1', animate('300ms ease-in')),
+    transition("1 => 0", animate("300ms ease-out")),
+    transition("0 => 1", animate("300ms ease-in")),
+    transition("void <=> *", animate("300ms ease-in"))
   ]),
 
-  trigger('slideIn', [
-    transition('void => left', [
+  trigger("slideInOut", [
+    state(
+      "0",
       style({
-        transform: 'translateX(100%)',
+        height: "0px"
+      })
+    ),
+    state(
+      "1",
+      style({
+        height: "*"
+      })
+    ),
+    transition("1 => 0", animate("300ms ease-out")),
+    transition("0 => 1", animate("300ms ease-in"))
+  ]),
+
+  trigger("slideIn", [
+    transition("void => left", [
+      style({
+        transform: "translateX(100%)"
       }),
       animate(
-        '300ms ease-in',
+        "300ms ease-in",
         style({
-          transform: 'translateX(0)',
+          transform: "translateX(0)"
         })
-      ),
+      )
     ]),
-    transition('left => void', [
+    transition("left => void", [
       style({
-        transform: 'translateX(0)',
+        transform: "translateX(0)"
       }),
       animate(
-        '300ms ease-in',
+        "300ms ease-in",
         style({
-          transform: 'translateX(-100%)',
+          transform: "translateX(-100%)"
         })
-      ),
+      )
     ]),
-    transition('void => right', [
+    transition("void => right", [
       style({
-        transform: 'translateX(-100%)',
+        transform: "translateX(-100%)"
       }),
       animate(
-        '300ms ease-in',
+        "300ms ease-in",
         style({
-          transform: 'translateX(0)',
+          transform: "translateX(0)"
         })
-      ),
+      )
     ]),
-    transition('right => void', [
+    transition("right => void", [
       style({
-        transform: 'translateX(0)',
+        transform: "translateX(0)"
       }),
       animate(
-        '300ms ease-in',
+        "300ms ease-in",
         style({
-          transform: 'translateX(100%)',
+          transform: "translateX(100%)"
         })
-      ),
-    ]),
+      )
+    ])
   ]),
 
-  trigger('slideInLeft', [
+  trigger("slideInLeft", [
     state(
-      'void',
+      "void",
       style({
-        transform: 'translateX(-100%)',
+        transform: "translateX(-100%)"
       })
     ),
     state(
-      '*',
+      "*",
       style({
-        transform: 'translateX(0)',
+        transform: "translateX(0)"
       })
     ),
-    transition('void => *', animate('300ms')),
-    transition('* => void', animate('300ms')),
+    transition("void => *", animate("300ms")),
+    transition("* => void", animate("300ms"))
   ]),
 
-  trigger('slideInRight', [
+  trigger("slideInRight", [
     state(
-      'void',
+      "void",
       style({
-        transform: 'translateX(100%)',
+        transform: "translateX(100%)"
       })
     ),
     state(
-      '*',
+      "*",
       style({
-        transform: 'translateX(0)',
+        transform: "translateX(0)"
       })
     ),
-    transition('void => *', animate('300ms')),
-    transition('* => void', animate('300ms')),
+    transition("void => *", animate("300ms")),
+    transition("* => void", animate("300ms"))
   ]),
 
-  trigger('slideInTop', [
+  trigger("slideInTop", [
     state(
-      'void',
+      "void",
       style({
-        transform: 'translateY(-100%)',
+        transform: "translateY(-100%)"
       })
     ),
     state(
-      '*',
+      "*",
       style({
-        transform: 'translateY(0)',
+        transform: "translateY(0)"
       })
     ),
-    transition('void => *', animate('300ms')),
-    transition('* => void', animate('300ms')),
+    transition("void => *", animate("300ms")),
+    transition("* => void", animate("300ms"))
   ]),
 
-  trigger('slideInBottom', [
+  trigger("slideInBottom", [
     state(
-      'void',
+      "void",
       style({
-        transform: 'translateY(100%)',
+        transform: "translateY(100%)"
       })
     ),
     state(
-      '*',
+      "*",
       style({
-        transform: 'translateY(0)',
+        transform: "translateY(0)"
       })
     ),
-    transition('void => *', animate('300ms')),
-    transition('* => void', animate('300ms')),
+    transition("void => *", animate("300ms")),
+    transition("* => void", animate("300ms"))
   ]),
 
-  trigger('expandCollapse', [
+  trigger("expandCollapse", [
     state(
-      'void',
+      "void",
       style({
-        height: '0px',
+        height: "0px"
       })
     ),
     state(
-      '*',
+      "*",
       style({
-        height: '*',
+        height: "*"
       })
     ),
-    transition('void => *', animate('300ms ease-out')),
-    transition('* => void', animate('300ms ease-in')),
+    transition("void => *", animate("300ms ease-out")),
+    transition("* => void", animate("300ms ease-in"))
   ]),
 
   // -----------------------------------------------------------------------------------------------------
   // @ Router animations
   // -----------------------------------------------------------------------------------------------------
 
-  trigger('routerTransitionLeft', [
-    transition('* => *', [
+  trigger("routerTransitionLeft", [
+    transition("* => *", [
       query(
-        'content > :enter, content > :leave',
+        "content > :enter, content > :leave",
         [
           style({
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
-            right: 0,
-          }),
+            right: 0
+          })
         ],
         { optional: true }
       ),
       query(
-        'content > :enter',
+        "content > :enter",
         [
           style({
-            transform: 'translateX(100%)',
-            opacity: 0,
-          }),
+            transform: "translateX(100%)",
+            opacity: 0
+          })
         ],
         { optional: true }
       ),
       sequence([
         group([
           query(
-            'content > :leave',
+            "content > :leave",
             [
               style({
-                transform: 'translateX(0)',
-                opacity: 1,
+                transform: "translateX(0)",
+                opacity: 1
               }),
               animate(
-                '600ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+                "600ms cubic-bezier(0.0, 0.0, 0.2, 1)",
                 style({
-                  transform: 'translateX(-100%)',
-                  opacity: 0,
+                  transform: "translateX(-100%)",
+                  opacity: 0
                 })
-              ),
+              )
             ],
             { optional: true }
           ),
           query(
-            'content > :enter',
+            "content > :enter",
             [
-              style({ transform: 'translateX(100%)' }),
+              style({ transform: "translateX(100%)" }),
               animate(
-                '600ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+                "600ms cubic-bezier(0.0, 0.0, 0.2, 1)",
                 style({
-                  transform: 'translateX(0%)',
-                  opacity: 1,
+                  transform: "translateX(0%)",
+                  opacity: 1
                 })
-              ),
+              )
             ],
             { optional: true }
-          ),
+          )
         ]),
-        query('content > :leave', animateChild(), { optional: true }),
-        query('content > :enter', animateChild(), { optional: true }),
-      ]),
-    ]),
+        query("content > :leave", animateChild(), { optional: true }),
+        query("content > :enter", animateChild(), { optional: true })
+      ])
+    ])
   ]),
 
-  trigger('routerTransitionRight', [
-    transition('* => *', [
+  trigger("routerTransitionRight", [
+    transition("* => *", [
       query(
-        'content > :enter, content > :leave',
+        "content > :enter, content > :leave",
         [
           style({
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
-            right: 0,
-          }),
+            right: 0
+          })
         ],
         { optional: true }
       ),
       query(
-        'content > :enter',
+        "content > :enter",
         [
           style({
-            transform: 'translateX(-100%)',
-            opacity: 0,
-          }),
+            transform: "translateX(-100%)",
+            opacity: 0
+          })
         ],
         { optional: true }
       ),
       sequence([
         group([
           query(
-            'content > :leave',
+            "content > :leave",
             [
               style({
-                transform: 'translateX(0)',
-                opacity: 1,
+                transform: "translateX(0)",
+                opacity: 1
               }),
               animate(
-                '600ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+                "600ms cubic-bezier(0.0, 0.0, 0.2, 1)",
                 style({
-                  transform: 'translateX(100%)',
-                  opacity: 0,
+                  transform: "translateX(100%)",
+                  opacity: 0
                 })
-              ),
+              )
             ],
             { optional: true }
           ),
           query(
-            'content > :enter',
+            "content > :enter",
             [
-              style({ transform: 'translateX(-100%)' }),
+              style({ transform: "translateX(-100%)" }),
               animate(
-                '600ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+                "600ms cubic-bezier(0.0, 0.0, 0.2, 1)",
                 style({
-                  transform: 'translateX(0%)',
-                  opacity: 1,
+                  transform: "translateX(0%)",
+                  opacity: 1
                 })
-              ),
+              )
             ],
             { optional: true }
-          ),
+          )
         ]),
-        query('content > :leave', animateChild(), { optional: true }),
-        query('content > :enter', animateChild(), { optional: true }),
-      ]),
-    ]),
+        query("content > :leave", animateChild(), { optional: true }),
+        query("content > :enter", animateChild(), { optional: true })
+      ])
+    ])
   ]),
 
-  trigger('routerTransitionUp', [
-    transition('* => *', [
+  trigger("routerTransitionUp", [
+    transition("* => *", [
       query(
-        'content > :enter, content > :leave',
+        "content > :enter, content > :leave",
         [
           style({
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
-            right: 0,
-          }),
+            right: 0
+          })
         ],
         { optional: true }
       ),
       query(
-        'content > :enter',
+        "content > :enter",
         [
           style({
-            transform: 'translateY(100%)',
-            opacity: 0,
-          }),
+            transform: "translateY(100%)",
+            opacity: 0
+          })
         ],
         { optional: true }
       ),
       group([
         query(
-          'content > :leave',
+          "content > :leave",
           [
             style({
-              transform: 'translateY(0)',
-              opacity: 1,
+              transform: "translateY(0)",
+              opacity: 1
             }),
             animate(
-              '600ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+              "600ms cubic-bezier(0.0, 0.0, 0.2, 1)",
               style({
-                transform: 'translateY(-100%)',
-                opacity: 0,
+                transform: "translateY(-100%)",
+                opacity: 0
               })
-            ),
+            )
           ],
           { optional: true }
         ),
         query(
-          'content > :enter',
+          "content > :enter",
           [
-            style({ transform: 'translateY(100%)' }),
+            style({ transform: "translateY(100%)" }),
             animate(
-              '600ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+              "600ms cubic-bezier(0.0, 0.0, 0.2, 1)",
               style({
-                transform: 'translateY(0%)',
-                opacity: 1,
+                transform: "translateY(0%)",
+                opacity: 1
               })
-            ),
+            )
           ],
           { optional: true }
-        ),
+        )
       ]),
-      query('content > :leave', animateChild(), { optional: true }),
-      query('content > :enter', animateChild(), { optional: true }),
-    ]),
+      query("content > :leave", animateChild(), { optional: true }),
+      query("content > :enter", animateChild(), { optional: true })
+    ])
   ]),
 
-  trigger('routerTransitionDown', [
-    transition('* => *', [
+  trigger("routerTransitionDown", [
+    transition("* => *", [
       query(
-        'content > :enter, content > :leave',
+        "content > :enter, content > :leave",
         [
           style({
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             bottom: 0,
             left: 0,
-            right: 0,
-          }),
+            right: 0
+          })
         ],
         { optional: true }
       ),
       query(
-        'content > :enter',
+        "content > :enter",
         [
           style({
-            transform: 'translateY(-100%)',
-            opacity: 0,
-          }),
+            transform: "translateY(-100%)",
+            opacity: 0
+          })
         ],
         { optional: true }
       ),
       sequence([
         group([
           query(
-            'content > :leave',
+            "content > :leave",
             [
               style({
-                transform: 'translateY(0)',
-                opacity: 1,
+                transform: "translateY(0)",
+                opacity: 1
               }),
               animate(
-                '600ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+                "600ms cubic-bezier(0.0, 0.0, 0.2, 1)",
                 style({
-                  transform: 'translateY(100%)',
-                  opacity: 0,
+                  transform: "translateY(100%)",
+                  opacity: 0
                 })
-              ),
+              )
             ],
             { optional: true }
           ),
           query(
-            'content > :enter',
+            "content > :enter",
             [
-              style({ transform: 'translateY(-100%)' }),
+              style({ transform: "translateY(-100%)" }),
               animate(
-                '600ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+                "600ms cubic-bezier(0.0, 0.0, 0.2, 1)",
                 style({
-                  transform: 'translateY(0%)',
-                  opacity: 1,
+                  transform: "translateY(0%)",
+                  opacity: 1
                 })
-              ),
+              )
             ],
             { optional: true }
-          ),
+          )
         ]),
-        query('content > :leave', animateChild(), { optional: true }),
-        query('content > :enter', animateChild(), { optional: true }),
-      ]),
-    ]),
+        query("content > :leave", animateChild(), { optional: true }),
+        query("content > :enter", animateChild(), { optional: true })
+      ])
+    ])
   ]),
 
-  trigger('routerTransitionFade', [
+  trigger("routerTransitionFade", [
     transition(
-      '* => *',
+      "* => *",
       group([
         query(
-          'content > :enter, content > :leave ',
+          "content > :enter, content > :leave ",
           [
             style({
-              position: 'absolute',
+              position: "absolute",
               top: 0,
               bottom: 0,
               left: 0,
-              right: 0,
-            }),
+              right: 0
+            })
           ],
           { optional: true }
         ),
 
         query(
-          'content > :enter',
+          "content > :enter",
           [
             style({
-              opacity: 0,
-            }),
+              opacity: 0
+            })
           ],
           { optional: true }
         ),
         query(
-          'content > :leave',
+          "content > :leave",
           [
             style({
-              opacity: 1,
+              opacity: 1
             }),
             animate(
-              '300ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+              "300ms cubic-bezier(0.0, 0.0, 0.2, 1)",
               style({
-                opacity: 0,
+                opacity: 0
               })
-            ),
+            )
           ],
           { optional: true }
         ),
         query(
-          'content > :enter',
+          "content > :enter",
           [
             style({
-              opacity: 0,
+              opacity: 0
             }),
             animate(
-              '300ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+              "300ms cubic-bezier(0.0, 0.0, 0.2, 1)",
               style({
-                opacity: 1,
+                opacity: 1
               })
-            ),
+            )
           ],
           { optional: true }
         ),
-        query('content > :enter', animateChild(), { optional: true }),
-        query('content > :leave', animateChild(), { optional: true }),
+        query("content > :enter", animateChild(), { optional: true }),
+        query("content > :leave", animateChild(), { optional: true })
       ])
-    ),
-  ]),
+    )
+  ])
 ];

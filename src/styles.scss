@@ -1,31 +1,38 @@
-$toolbar-height-desktop : 56px;
-$hive-page-padding      : 16px;
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+$toolbar-height-desktop: 56px;
+$hive-page-padding: 16px;
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "~@angular/material/theming";
 
 .hive-page-wrapper {
-  padding : $hive-page-padding;
+  padding: $hive-page-padding;
 
   .hive-page-header {
-    padding          : 5px $hive-page-padding;
-    background-color : #008dd2 !important;
+    padding: 5px $hive-page-padding;
+    background-color: #008dd2 !important;
 
-    .hive-page-title { margin : 0 0 5px !important; }
+    .hive-page-title {
+      margin: 0 0 5px !important;
+    }
   }
 
   > mat-card {
-    margin  : 0 10px;
-    padding : 10px !important;
+    margin: 0 10px;
+    padding: 10px !important;
   }
 
   .form100 {
-    mat-form-field {width : 100%;}
+    mat-form-field {
+      width: 100%;
+    }
   }
 
   .colpad10 {
-    [flxLayout="column"]:not(:last-of-type) {padding-right : 10px}
-
+    [flxLayout="column"]:not(:last-of-type) {
+      padding-right: 10px;
+    }
   }
 
-  .dx-master-detail-cell {padding : 16px !important;}
+  .dx-master-detail-cell {
+    padding: 16px !important;
+  }
 }

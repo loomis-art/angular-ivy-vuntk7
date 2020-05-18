@@ -1,3 +1,3 @@
-import { UserModel } from './user.model';
+import { UserModel } from "./user.model";
 
-export class UpdateUserModel extends UserModel { }
+export class UpdateUserModel extends UserModel {}

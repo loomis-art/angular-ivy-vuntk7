@@ -1,7 +1,7 @@
-import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Observable, Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
-const untilDestroyedSymbol = Symbol('untilDestroyed');
+const untilDestroyedSymbol = Symbol("untilDestroyed");
 
 /**
  * RxJS operator that unsubscribe from observables on destory.
@@ -34,10 +34,13 @@ const untilDestroyedSymbol = Symbol('untilDestroyed');
  * }
  * ```
  */
-export function untilDestroyed(instance: object, destroyMethodName: string = 'ngOnDestroy') {
+export function untilDestroyed(
+  instance: object,
+  destroyMethodName: string = "ngOnDestroy"
+) {
   return <T>(source: Observable<T>) => {
     const originalDestroy = instance[destroyMethodName];
-    const hasDestroyFunction = typeof originalDestroy === 'function';
+    const hasDestroyFunction = typeof originalDestroy === "function";
 
     if (!hasDestroyFunction) {
       throw new Error(

@@ -1,194 +1,388 @@
 <div class="hive-page-wrapper">
-    <hive-page-header [title]="'Firma Ekle'"></hive-page-header>
-    <mat-card>
-        <mat-horizontal-stepper linear="true">
-            <mat-step label="Firma Bilgileri" state="firma">
-                <div fxLayout="row" class="form100 colpad10">
-                    <div flxLayout="column" fxFlex="50">
-                        <div fxLayout="row">
-                            <mat-checkbox [(ngModel)]="firma.SubeliFirma" (change)="SubeliFirmaDegisti(firma.SubeliFirma)" style="vertical-align: middle;line-height: 60px;padding-right: 10px;">Şubeli
-                            </mat-checkbox>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Ana Firma</mat-label>
-                                <mat-select placeholder="Ana Firma" name="anafirma" [(ngModel)]="firma.AnaFirmaId" [disabled]="firma.SubeliFirma">
-                                    <mat-option>Ana Firması Yok</mat-option>
-                                    <mat-option *ngFor="let xfirma of mikroKargoFirmaService.anaFirmaListesi" [value]="xfirma.Id">
-                                        {{ xfirma.Unvani }}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Ticari Ünvan</mat-label>
-                            <input matInput [(ngModel)]="firma.Unvani" name="scenarioName" #scenarioName="ngModel" placeholder="Ticari Ünvan" class="form-control" required minlength="3"/>
-                            <mat-error [hidden]="scenarioName.valid">Ticari Ünvan en az 3 karakter olmalı
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Marka Ünvanı</mat-label>
-                            <input matInput [(ngModel)]="firma.KisaAdi" name="scenarioName" #scenarioName="ngModel" placeholder="Marka Ünvanı" class="form-control" required minlength="3"/>
-                            <mat-error [hidden]="scenarioName.valid">Marka Ünvanı en az 3 karakter olmalı
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                    <div flxLayout="column" fxFlex="50">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Muhasebe Kodu</mat-label>
-                            <input matInput [(ngModel)]="firma.MuhasebeKodu" name="scenarioName" #scenarioName="ngModel" placeholder="Muhasebe Kodu" class="form-control" required minlength="3"/>
-                            <mat-error [hidden]="scenarioName.valid">Muhasebe Kodu en az 3 karakter olmalı
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Muhasebe Mail</mat-label>
-                            <input matInput [(ngModel)]="firma.MuhasebeMail" name="scenarioName" #scenarioName="ngModel" placeholder="Muhasebe Mail" class="form-control" required minlength="3"/>
-                            <mat-error [hidden]="scenarioName.valid">Muhasebe Mail en az 3 karakter olmalı
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Vergi Dairesi</mat-label>
-                            <input matInput [(ngModel)]="firma.VergiDairesi" name="scenarioName" #scenarioName="ngModel" placeholder="Vergi Dairesi" class="form-control" required minlength="3"/>
-                            <mat-error [hidden]="scenarioName.valid">Vergi Dairesi en az 3 karakter olmalı
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Vergi Numarası</mat-label>
-                            <input matInput [(ngModel)]="firma.VergiNumarasi" name="scenarioName" #scenarioName="ngModel" placeholder="Vergi Numarası" class="form-control" required minlength="3"/>
-                            <mat-error [hidden]="scenarioName.valid">Vergi Numarası en az 3 karakter olmalı
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div>
-                    <button mat-button matStepperNext>Sonraki</button>
-                </div>
-            </mat-step>
-            <mat-step label="Firma Adres Bilgileri" state="adres">
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Yetkili</mat-label>
-                        <input matInput [(ngModel)]="firma.Yetkili" name="scenarioName" #scenarioName="ngModel" placeholder="Yetkili" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Yetkili en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Telefon</mat-label>
-                        <input matInput [(ngModel)]="firma.Telefon" name="scenarioName" #scenarioName="ngModel" placeholder="Telefon" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Telefon en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>İl</mat-label>
-                        <input matInput [(ngModel)]="firma.Il" name="scenarioName" #scenarioName="ngModel" placeholder="İl" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">İl en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>İlçe</mat-label>
-                        <input matInput [(ngModel)]="firma.Ilce" name="scenarioName" #scenarioName="ngModel" placeholder="İlçe" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">İlçe en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Adres</mat-label>
-                        <input matInput [(ngModel)]="firma.Adres" name="scenarioName" #scenarioName="ngModel" placeholder="Adres" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Adres en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <button mat-button matStepperPrevious>Önceki</button>
-                    <button mat-button matStepperNext>Sonraki</button>
-                </div>
-            </mat-step>
-            <mat-step label="Fiyat Tanımlama" state="fiyat">
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Sigorta Fiyatı</mat-label>
-                        <input matInput [(ngModel)]="firma.SigortaFiyati" name="scenarioName" #scenarioName="ngModel" placeholder="(Binde))" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Sigorta Fiyatı en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Yurtiçi Kargo</mat-label>
-                        <input matInput [(ngModel)]="firma.YurticiKargo" name="scenarioName" #scenarioName="ngModel" placeholder="(TL))" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Yurtiçi Kargo en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Ups Kargo</mat-label>
-                        <input matInput [(ngModel)]="firma.UpsKargo" name="scenarioName" #scenarioName="ngModel" placeholder="(TL))" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Ups Kargo en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <button mat-button matStepperPrevious>Önceki</button>
-                    <button mat-button matStepperNext>Sonraki</button>
-                </div>
-            </mat-step>
-            <mat-step label="Sözleşme Ekle" state="sozlesme">
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Sözleşmeyi Yapan</mat-label>
-                        <input matInput [(ngModel)]="firma.SozlesmeyiYapan" name="scenarioName" #scenarioName="ngModel" placeholder="Sözleşmeyi Yapan" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Sözleşmeyi Yapan en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Müşteri Türü</mat-label>
-                        <input matInput [(ngModel)]="firma.MusteriTuru" name="scenarioName" #scenarioName="ngModel" placeholder="Müşteri Türü" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Müşteri Türü en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Sözleşme Başlangıcı</mat-label>
-                        <input matInput [(ngModel)]="firma.SozlesmeBaslangici" name="scenarioName" #scenarioName="ngModel" placeholder="Sözleşme Başlangıcı" class="form-control" required minlength="3"/>
-                        <mat-error [hidden]="scenarioName.valid">Sözleşme Başlangıcı en az 3 karakter olmalı
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <div>
-                        <div>
-                            <button mat-raised-button color="primary">Sözleşme Yükle</button>
-                            <mat-card>
-                                <mat-card-content>
-                                    <ul>
-                                        <li *ngFor="let file of files">
-                                            <mat-progress-bar [value]="file.progress"></mat-progress-bar>
-                                            <span id="file-label"></span>
-                                        </li>
-                                    </ul>
-                                </mat-card-content>
-                                <mat-card-actions>
-                                    <button mat-button color="warn" (click)="onClick()">
-                                        <mat-icon>file_upload</mat-icon>
-                                        Upload
-                                    </button>
-                                </mat-card-actions>
-                            </mat-card>
-                            <input type="file" #fileInput id="fileUpload" name="fileUpload" multiple="multiple" accept="image/*" style="display:none;"/>
-                        </div>
-                        <div>
-                            <button mat-raised-button color="warn">Sözleşme Dök</button>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <button mat-button matStepperPrevious>Önceki</button>
-                </div>
-            </mat-step>
-        </mat-horizontal-stepper>
-        {{ firma | json }}
-    </mat-card>
+  <hive-page-header [title]="'Firma Ekle'"></hive-page-header>
+  <mat-card>
+    <mat-horizontal-stepper linear="true">
+      <mat-step label="Firma Bilgileri" state="firma">
+        <div fxLayout="row" class="form100 colpad10">
+          <div flxLayout="column" fxFlex="50">
+            <div fxLayout="row">
+              <mat-checkbox
+                [(ngModel)]="firma.SubeliFirma"
+                (change)="SubeliFirmaDegisti(firma.SubeliFirma)"
+                style="vertical-align: middle;line-height: 60px;padding-right: 10px;"
+                >Şubeli
+              </mat-checkbox>
+              <mat-form-field appearance="outline">
+                <mat-label>Ana Firma</mat-label>
+                <mat-select
+                  placeholder="Ana Firma"
+                  name="anafirma"
+                  [(ngModel)]="firma.AnaFirmaId"
+                  [disabled]="firma.SubeliFirma"
+                >
+                  <mat-option>Ana Firması Yok</mat-option>
+                  <mat-option
+                    *ngFor="
+                      let xfirma of mikroKargoFirmaService.anaFirmaListesi
+                    "
+                    [value]="xfirma.Id"
+                  >
+                    {{ xfirma.Unvani }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Ticari Ünvan</mat-label>
+              <input
+                matInput
+                [(ngModel)]="firma.Unvani"
+                name="scenarioName"
+                #scenarioName="ngModel"
+                placeholder="Ticari Ünvan"
+                class="form-control"
+                required
+                minlength="3"
+              />
+              <mat-error [hidden]="scenarioName.valid"
+                >Ticari Ünvan en az 3 karakter olmalı
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Marka Ünvanı</mat-label>
+              <input
+                matInput
+                [(ngModel)]="firma.KisaAdi"
+                name="scenarioName"
+                #scenarioName="ngModel"
+                placeholder="Marka Ünvanı"
+                class="form-control"
+                required
+                minlength="3"
+              />
+              <mat-error [hidden]="scenarioName.valid"
+                >Marka Ünvanı en az 3 karakter olmalı
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div flxLayout="column" fxFlex="50">
+            <mat-form-field appearance="outline">
+              <mat-label>Muhasebe Kodu</mat-label>
+              <input
+                matInput
+                [(ngModel)]="firma.MuhasebeKodu"
+                name="scenarioName"
+                #scenarioName="ngModel"
+                placeholder="Muhasebe Kodu"
+                class="form-control"
+                required
+                minlength="3"
+              />
+              <mat-error [hidden]="scenarioName.valid"
+                >Muhasebe Kodu en az 3 karakter olmalı
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Muhasebe Mail</mat-label>
+              <input
+                matInput
+                [(ngModel)]="firma.MuhasebeMail"
+                name="scenarioName"
+                #scenarioName="ngModel"
+                placeholder="Muhasebe Mail"
+                class="form-control"
+                required
+                minlength="3"
+              />
+              <mat-error [hidden]="scenarioName.valid"
+                >Muhasebe Mail en az 3 karakter olmalı
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Vergi Dairesi</mat-label>
+              <input
+                matInput
+                [(ngModel)]="firma.VergiDairesi"
+                name="scenarioName"
+                #scenarioName="ngModel"
+                placeholder="Vergi Dairesi"
+                class="form-control"
+                required
+                minlength="3"
+              />
+              <mat-error [hidden]="scenarioName.valid"
+                >Vergi Dairesi en az 3 karakter olmalı
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Vergi Numarası</mat-label>
+              <input
+                matInput
+                [(ngModel)]="firma.VergiNumarasi"
+                name="scenarioName"
+                #scenarioName="ngModel"
+                placeholder="Vergi Numarası"
+                class="form-control"
+                required
+                minlength="3"
+              />
+              <mat-error [hidden]="scenarioName.valid"
+                >Vergi Numarası en az 3 karakter olmalı
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Sonraki</button>
+        </div>
+      </mat-step>
+      <mat-step label="Firma Adres Bilgileri" state="adres">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Yetkili</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.Yetkili"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="Yetkili"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Yetkili en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Telefon</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.Telefon"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="Telefon"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Telefon en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>İl</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.Il"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="İl"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >İl en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>İlçe</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.Ilce"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="İlçe"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >İlçe en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Adres</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.Adres"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="Adres"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Adres en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Önceki</button>
+          <button mat-button matStepperNext>Sonraki</button>
+        </div>
+      </mat-step>
+      <mat-step label="Fiyat Tanımlama" state="fiyat">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Sigorta Fiyatı</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.SigortaFiyati"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="(Binde))"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Sigorta Fiyatı en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Yurtiçi Kargo</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.YurticiKargo"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="(TL))"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Yurtiçi Kargo en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Ups Kargo</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.UpsKargo"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="(TL))"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Ups Kargo en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Önceki</button>
+          <button mat-button matStepperNext>Sonraki</button>
+        </div>
+      </mat-step>
+      <mat-step label="Sözleşme Ekle" state="sozlesme">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Sözleşmeyi Yapan</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.SozlesmeyiYapan"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="Sözleşmeyi Yapan"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Sözleşmeyi Yapan en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Müşteri Türü</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.MusteriTuru"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="Müşteri Türü"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Müşteri Türü en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Sözleşme Başlangıcı</mat-label>
+            <input
+              matInput
+              [(ngModel)]="firma.SozlesmeBaslangici"
+              name="scenarioName"
+              #scenarioName="ngModel"
+              placeholder="Sözleşme Başlangıcı"
+              class="form-control"
+              required
+              minlength="3"
+            />
+            <mat-error [hidden]="scenarioName.valid"
+              >Sözleşme Başlangıcı en az 3 karakter olmalı
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <div>
+            <div>
+              <button mat-raised-button color="primary">Sözleşme Yükle</button>
+              <mat-card>
+                <mat-card-content>
+                  <ul>
+                    <li *ngFor="let file of files">
+                      <mat-progress-bar
+                        [value]="file.progress"
+                      ></mat-progress-bar>
+                      <span id="file-label"></span>
+                    </li>
+                  </ul>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button color="warn" (click)="onClick()">
+                    <mat-icon>file_upload</mat-icon>
+                    Upload
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+              <input
+                type="file"
+                #fileInput
+                id="fileUpload"
+                name="fileUpload"
+                multiple="multiple"
+                accept="image/*"
+                style="display:none;"
+              />
+            </div>
+            <div>
+              <button mat-raised-button color="warn">Sözleşme Dök</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Önceki</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+    {{ firma | json }}
+  </mat-card>
 </div>
