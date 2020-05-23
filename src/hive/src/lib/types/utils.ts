@@ -4,10 +4,10 @@ export class HiveUtils {
         controls: string | 'lowerCase' | 'upperCase' | 'digit' | 'specialChar' | 'length',
         value: string,
         length: number = null): boolean {
-        const lowerCase = RegExp(/^(?=.*?[a-z])/);
-        const upperCase = RegExp(/^(?=.*?[A-Z])/);
-        const digit = RegExp(/^(?=.*?[0-9])/);
-        const specialChar = RegExp(/^(?=.*?[" !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"])/);
+        // const lowerCase = RegExp(/^(?=.*?[a-z])/);
+        // const upperCase = RegExp(/^(?=.*?[A-Z])/);
+        // const digit = RegExp(/^(?=.*?[0-9])/);
+        // const specialChar = RegExp(/^(?=.*?[" !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"])/);
 
         return false;
     }

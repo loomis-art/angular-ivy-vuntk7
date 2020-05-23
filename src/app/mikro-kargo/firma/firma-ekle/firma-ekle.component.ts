@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ProfileFirma } from "../../../../hive/src/lib/lib/types/models";
+import { ProfileFirma } from "../../../../hive/src/lib/types/models";
 import { MikroKargoFirmaService } from "../../_services/mikrokargo-firma.service";
 
 @Component({

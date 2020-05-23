@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import {
   IdentityApplicationUser
-} from "../../../../hive/src/lib/lib/types/models";
+} from "../../../../hive/src/lib/types/models";
 import { MikroKargoFirmaService } from "../../_services/mikrokargo-firma.service";
 
 @Component({
