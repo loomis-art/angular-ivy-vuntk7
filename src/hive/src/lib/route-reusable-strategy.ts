@@ -8,7 +8,7 @@ import { Injectable } from "@angular/core";
 /**
  * A route strategy allowing for explicit route reuse.
  * Used as a workaround for https://github.com/angular/angular/issues/18374
- * To reuse a given route, add `data: { reuse: true }` to the route definition.
+ * To reuse a given route, add `Data: { reuse: true }` to the route definition.
  */
 @Injectable()
 export class RouteReusableStrategy extends RouteReuseStrategy {

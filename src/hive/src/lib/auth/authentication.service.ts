@@ -32,7 +32,7 @@ export class AuthenticationService {
    */
   login(context: ILoginContext): Observable<ICredentials> {
     // Replace by proper authentication call
-    // var data: Credentials = {} ;
+    // var Data: Credentials = {} ;
 
     return this.http
       .post<ResultViewModelGeneric<ICredentials>>(

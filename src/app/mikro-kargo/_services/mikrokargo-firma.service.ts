@@ -34,9 +34,9 @@ export class MikroKargoFirmaService {
     return this.firmaService
       .GetFirmaList({ SubeliFirma: true, ApplicationId: this.application.Id })
       .subscribe(response => {
-        console.log("AnaFirmaListesi", response.data);
+        console.log("AnaFirmaListesi", response.Data);
 
-        this.anaFirmaListesi = response.data;
+        this.anaFirmaListesi = response.Data;
       });
   }
 
@@ -48,8 +48,8 @@ export class MikroKargoFirmaService {
     return this.firmaService
       .GetFirmaList({ ApplicationId: this.application.Id })
       .subscribe(response => {
-        console.log("AnaFirmaListesi", response.data);
-        this.mikroKargofirmaListesi = response.data;
+        console.log("AnaFirmaListesi", response.Data);
+        this.mikroKargofirmaListesi = response.Data;
       });
   }
 }
