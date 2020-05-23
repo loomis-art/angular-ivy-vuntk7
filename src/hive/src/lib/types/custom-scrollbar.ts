@@ -14,10 +14,10 @@ export class HiveCustomScrollGeometry {
 }
 
 export class HiveCustomScrollPosition {
-  public x: number | "start" | "end";
-  public y: number | "start" | "end";
+  public x: number | 'start' | 'end';
+  public y: number | 'start' | 'end';
 
-  constructor(x: number | "start" | "end", y: number | "start" | "end") {
+  constructor(x: number | 'start' | 'end', y: number | 'start' | 'end') {
     this.x = x;
     this.y = y;
   }

@@ -11,4 +11,5 @@ interface ApplicationUserViewModel {
   adi: string;
   soyadi: string;
   name: string;
+
 }

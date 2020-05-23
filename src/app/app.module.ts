@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
-import { HiveModule } from "../hive/hive.module";
+import { HiveModule } from "src/hive/src/lib/hive.module";
 import { MaterialModule } from "./material.module";
 import { AppComponent } from "./app.component";
 

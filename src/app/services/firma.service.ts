@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { ProfileFirma } from "../../hive/lib/types/models";
+import { ProfileFirma } from "../../hive/src/lib/lib/types/models";
 import { Observable } from "rxjs";
-import { ResultViewModelGeneric } from "../../hive/lib/types";
+import { ResultViewModelGeneric } from "../../hive/src/lib/lib/types";
 
 @Injectable({ providedIn: "root" })
 export class FirmaService implements OnDestroy {

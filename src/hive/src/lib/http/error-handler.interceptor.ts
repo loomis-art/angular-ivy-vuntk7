@@ -9,8 +9,8 @@ import {
 import { Observable } from "rxjs";
 import { catchError } from "rxjs/operators";
 
-import { environment } from "../../environments/environment";
-import { Logger } from "../../hive/services/logger.service";
+import { environment } from "src/environments/environment";
+import { Logger } from "src/hive/src/lib/services/logger.service";
 import { Router } from "@angular/router";
 
 const log = new Logger("ErrorHandlerInterceptor");

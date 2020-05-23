@@ -3,7 +3,7 @@ export interface Tag {
   translate?: string;
   bg?: string;
   fg?: string;
-  color: string; // background Color
+  color: string; // Background Color
   value: string;
 }
 
@@ -11,14 +11,14 @@ export interface IHiveMenuItem {
   id?: string;
   title?: string;
   type?:
-    | "item"
-    | "group"
-    | "collapsable"
+    | 'item'
+    | 'group'
+    | 'collapsable'
     // ------------------------------------
-    | "link"
-    | "sub"
-    | "extLink"
-    | "extTabLink";
+    | 'link'
+    | 'sub'
+    | 'extLink'
+    | 'extTabLink';
   translate?: string;
   icon?: string;
   hidden?: boolean;
@@ -41,14 +41,14 @@ export interface IHiveMenu extends IHiveMenuItem {
   state?: string;
   name?: string;
   type?:
-    | "item"
-    | "group"
-    | "collapsable"
+    | 'item'
+    | 'group'
+    | 'collapsable'
     // ------------------------------------
-    | "link"
-    | "sub"
-    | "extLink"
-    | "extTabLink";
+    | 'link'
+    | 'sub'
+    | 'extLink'
+    | 'extTabLink';
   icon?: string;
   label?: Tag;
   badge?: Tag;

@@ -10,8 +10,8 @@ import {
 } from "@angular/common";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { RouteReuseStrategy } from "@angular/router";
-import { RouteReusableStrategy } from "./route-reusable-strategy";
-import { MaterialModule } from "../app/material.module";
+import { RouteReusableStrategy } from "src/hive/src/lib/route-reusable-strategy";
+import { MaterialModule } from "src/app/material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import "moment/locale/tr";
 import {
@@ -23,9 +23,9 @@ import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS
 } from "@angular/material-moment-adapter";
-import { PageHeaderComponent } from "./components/page-header/page-header.component";
-import { ApiPrefixInterceptor } from "./http/api-prefix.interceptor";
-import { DefaultInterceptor } from "./http/default.interceptor";
+import { PageHeaderComponent } from "src/hive/src/lib/components/page-header/page-header.component";
+import { ApiPrefixInterceptor } from "src/hive/src/lib/http/api-prefix.interceptor";
+import { DefaultInterceptor } from "src/hive/src/lib/http/default.interceptor";
 
 export const MY_FORMATS = {
   parse: { dateInput: "DD.MM.YYYY" },

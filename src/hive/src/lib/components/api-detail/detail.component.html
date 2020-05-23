@@ -1,0 +1,38 @@
+<ng-template #ulkeTemplate>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ulkeLabel}}</mat-label>
+        <input matInput [(ngModel)]="selectedUlke"  (ngModelChange)="ulkeChanged($event)" [matAutocomplete]="autoUlke" type="text" placeholder="Ülke"/>
+        <mat-autocomplete autoActiveFirstOption #autoUlke="matAutocomplete" [displayWith]="displayAdi">
+            <mat-option *ngFor="let xUlke of ulkeler" [value]="xUlke">{{ xUlke.Adi }}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</ng-template>
+<ng-template #ilTemplate>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ilLabel}}</mat-label>
+        <input matInput [(ngModel)]="selectedIl" (ngModelChange)="ilChanged($event)" [matAutocomplete]="autoIl" type="text" placeholder="İl"/>
+        <mat-autocomplete autoActiveFirstOption #autoIl="matAutocomplete" [displayWith]="displayAdi">
+            <mat-option *ngFor="let xIl of iller" [value]="xIl">{{ xIl.Adi }}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</ng-template>
+<ng-template #ilceTemplate>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>{{ilceLabel}}</mat-label>
+        <input matInput [(ngModel)]="selectedIlce" [matAutocomplete]="autoIlce" type="text" placeholder="İlçe"/>
+        <mat-autocomplete autoActiveFirstOption #autoIlce="matAutocomplete" [displayWith]="displayAdi">
+            <mat-option *ngFor="let xIlce of ilceler" [value]="xIlce">{{ xIlce.Adi }}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</ng-template>
+<div [fxLayout]="fxLayout">
+    <ng-container *ngIf="ulkeGoster">
+        <ng-container *ngTemplateOutlet="ulkeTemplate"></ng-container>
+    </ng-container>
+    <ng-container *ngIf="ilGoster">
+        <ng-container *ngTemplateOutlet="ilTemplate"></ng-container>
+    </ng-container>
+    <ng-container *ngIf="ilceGoster">
+        <ng-container *ngTemplateOutlet="ilceTemplate"></ng-container>
+    </ng-container>
+</div>
