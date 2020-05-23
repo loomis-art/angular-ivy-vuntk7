@@ -62,7 +62,7 @@ export const customAnimations = [
     ),
     transition('1 => 0', animate('300ms ease-out')),
     transition('0 => 1', animate('300ms ease-in')),
-    transition('void <=> *', animate('300ms ease-in')),
+    // transition('void <=> *', animate('300ms ease-in')),
   ]),
 
   trigger('slideInOut', [
